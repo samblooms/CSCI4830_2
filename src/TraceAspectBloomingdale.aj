@@ -1,6 +1,8 @@
 public aspect TraceAspectBloomingdale {
     
-    pointcut traceGetNameMethods(): execution(String *.getName());
+    pointcut classToTrace(): within(*App);
+    
+    pointcut traceGetNameMethods(): classToTrace() && execution(String *.getName());
     
     before(): traceGetNameMethods() {
         System.out.println("[BGN] " + thisJoinPointStaticPart.getSignature() + ", " + 
