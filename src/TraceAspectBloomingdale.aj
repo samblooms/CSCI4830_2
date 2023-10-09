@@ -4,10 +4,10 @@ public aspect TraceAspectBloomingdale {
     
     before(): traceGetNameMethods() {
         System.out.println("[BGN] " + thisJoinPointStaticPart.getSignature() + ", " + 
-                           thisJoinPointStaticPart.getSourceLocation().getLine() + " *");
+                           thisJoinPointStaticPart.getSourceLocation().getLine());
     }
     
     after(): traceGetNameMethods() {
-        System.out.println("[END] " + thisJoinPointStaticPart.getSourceLocation().getFileName() + " +");
+        System.out.println("[END] " + thisJoinPointStaticPart.getSourceLocation().getFileName());
     }
 }
